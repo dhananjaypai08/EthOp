@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Home</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+  </head>
+  <body>
+    <div class="container">
+        <nav class="navbar navbar-expand-lg bg-light">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="/">EthOp</a>
+              
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="https://pypi.org/project/web3/">web3</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active" href="https://www.linkedin.com/in/dhananjay-pai">Connect with me</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+         <br>
+         <div class="container">
+         <p class="fw-semibold">This webapp is used to interact with ethereum blockchain via web3</p>
+         </div>
+         
+         <div class="container">
+            <table class="table-success">
+                <thead class="table-success">
+                  <tr class="table-success">
+                    <th class="table-success" scope="col">Sr</th>
+                    <th class="table-success" scope="col">Operation</th>
+                    <th class="table-success" scope="col">Description</th>
+                    <th class="table-success" scope="col">Link</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="table-success">
+                    <th class="table-success" scope="row">1</th>
+                    <td class="table-success">Block lookups</td>
+                    <td class="table-success">Blocks can be fetched by providing either the block number or hash using API. Note: Block hash should be in their hexadecimal representation.</td>
+                    <td class="table-success"><a href="/blocklookup" class="btn btn-success">Block Lookups</a></td>
+                  </tr>
+                  <br>
+                  <tr class="table-success">
+                    <th scope="row" class="table-success">2</th>
+                    <td class="table-success">Latest-Block</td>
+                    <td class="table-success">Get the latest block details.</td>
+                    <td class="table-success"><a href="/latestblock" class="btn btn-success">Latest Block</a></td>
+                  </tr>
+                  <br>
+                  <tr class="table-success">
+                    <th scope="row" class="table-success">3</th>
+                    <td class="table-success">Check Balance</td>
+                    <td class="table-success">find the amount of ether owned by an account. Provide with ether public address.</td>
+                    <td class="table-success"><a href="/checkbalance" class="btn btn-success">Check Balance</a></td>
+                  </tr>
+                  <br>
+                  <tr class="table-success">
+                    <th scope="row" class="table-success">4</th>
+                    <td class="table-success">Making transactions</td>
+                    <td class="table-success">send ether from one account to another. sign transaction and broadcast transaction via other provider. Interact with contracts and transaction lookups.</td>
+                    <td class="table-success"><a href="/maketransactions" class="btn btn-success">Transaction operations</a></td>
+                  </tr>
+                  <br>
+                  <tr class="table-success">
+                    <th scope="row" class="table-success">5</th>
+                    <td class="table-success">Interact with contracts</td>
+                    <td class="table-success">Interact with existing contracts, deploy new contracts.</td>
+                    <td class="table-success"><a href="/contracts" class="btn btn-success">Contract operations</a></td>
+                  </tr>
+                </tbody>
+              </table>
+         </div>
+
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+  </body>
+</html>

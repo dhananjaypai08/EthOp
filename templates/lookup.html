@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Block Lookups</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+  </head>
+  <body>
+    <div class="container">
+        <nav class="navbar navbar-expand-lg bg-light">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="/">EthOp</a>
+              
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="https://pypi.org/project/web3/">web3</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active" href="https://www.linkedin.com/in/dhananjay-pai">Connect with me</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+         <br>
+         <div class="container">
+         <p class="fw-semibold">This webapp is used to interact with ethereum blockchain via web3</p>
+         </div>
+
+         <br>
+
+         <div class="container">
+            {% if signal == 1 %}
+            <div class="alert alert-warning" role="alert">
+                {{msg}}
+              </div>
+
+             {% elif signal == 2%}
+             <div class="alert alert-success" role="alert">
+                {{msg}}
+              </div>
+             {{data}}
+             
+             {% elif signal == 3 %}
+             <div class="alert alert-danger" role="alert">
+                {{msg}}
+              </div>
+             {% endif %}
+
+        </div>
+        <br> 
+        <br>
+         <div class="container">
+             <form method="POST" action="/blocklookup">  {% csrf_token %}
+                <div class="input-group mb-3">
+                    <input name="address" type="text" class="form-control" placeholder="Block number or Hash" aria-label="Block address" aria-describedby="basic-addon2" required=True>
+                    <span class="input-group-text" id="basic-addon2">Enter Block Number or Block Hash</span>
+                  </div>
+                  <div class="btn">
+                  <button type="submit" class="btn btn-dark">Submit</button>
+                  </div>
+                  
+             </form>
+         </div>
+
+         
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+  </body>
+</html>
