@@ -41,7 +41,13 @@
              <div class="alert alert-success" role="alert">
                 {{msg}}
               </div>
-             {{data}}
+              {% if Connected %}
+              <span class="badge text-bg-info">Node is connection: {{Connected}}</span>
+              {% endif %}
+              <br>
+              
+              <a href="static/data.json" download="data.json" class="link-success">Download json file</a>
+              </a>
              
              {% elif signal == 3 %}
              <div class="alert alert-danger" role="alert">
@@ -55,9 +61,17 @@
          <div class="container">
              <form method="POST" action="/blocklookup">  {% csrf_token %}
                 <div class="input-group mb-3">
-                    <input name="address" type="text" class="form-control" placeholder="Block number or Hash" aria-label="Block address" aria-describedby="basic-addon2" required=True>
                     <span class="input-group-text" id="basic-addon2">Enter Block Number or Block Hash</span>
+                    <input name="address" type="text" class="form-control" placeholder="Block number or Hash or type `latest`" aria-label="Block address" aria-describedby="basic-addon2" required=True>
                   </div>
+
+                  <div class="input-group">
+                    <div class="input-group-text">
+                      <input name="checkconnection" class="form-check-input mt-0" type="radio" value="on" aria-label="Radio button for following text input">
+                      <span class="input-group-text" id="basic-addon2">Check Node connection.</span>
+                    </div>
+                  </div>
+
                   <div class="btn">
                   <button type="submit" class="btn btn-dark">Submit</button>
                   </div>
@@ -65,7 +79,16 @@
              </form>
          </div>
 
-         
+        <div class="container">
+          <div style="position: relative; width: 800px; height: 350px; align: bottom;">    
+          <div style="position: absolute; bottom: 5px;">
+            <p class="lead">
+              Check Node connection, get block details, use `latest` to get the latest block details. Block details provided
+              in the json file which needs to be downloaded.
+            </p>
+          </div>
+        </div>
+        </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
   </body>
