@@ -3,9 +3,9 @@ from django.shortcuts import render
 import eth_tester
 from web3 import Web3
 import json
+from decouple import config
 
-
-web3 = Web3(Web3.HTTPProvider('https://mainnet.infura.io/v3/17f47a2bd9d44d81b5c002e6b6fbb045'))
+web3 = Web3(Web3.HTTPProvider(f'https://mainnet.infura.io/v3/{str(config("NODEKEY"))}'))
 # Create your views here.
 
 
@@ -61,3 +61,21 @@ def blocklookup(request):
         print(msg)
         
     return render(request, 'lookup.html',msg)
+
+def getBalance(request):
+    """ find the amount of ether owned by an account."""
+    msg = {}
+    msg['signal'] = -1
+    if request.method=='POST':
+        address = request.POST.get('publicaddress')
+        ans = request.POST.get('exampleRadios')
+        try:
+            balance = web3.eth.get_balance(address)
+            if ans=='eth':
+                balance = web3.fromWei(balance, 'ether')
+            msg['signal'] = 1
+            msg['balance'] = balance
+        except:
+            msg['signal'] = 0
+            msg['msg'] = "PUBLIC ADDRESS NOT FOUND"
+    return render(request, 'checkbalance.html',msg)

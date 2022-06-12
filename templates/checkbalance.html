@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Get Balance</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+  </head>
+  <body>
+    <div class="container">
+        <nav class="navbar navbar-expand-lg bg-light">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="/">EthOp</a>
+              
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="https://pypi.org/project/web3/">web3</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active" href="https://www.linkedin.com/in/dhananjay-pai">Connect with me</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+         <br>
+         <div class="container">
+         <p class="fw-semibold">This webapp is used to interact with ethereum blockchain via web3</p>
+         </div>
+
+        <br> 
+
+        
+         <div class="container">
+            <div class="container">
+                {% if signal == 1%}
+                <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+                    <symbol id="info-fill" fill="currentColor" viewBox="0 0 16 16">
+                      <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
+                    </symbol>
+                  </svg>
+                  <div class="alert alert-success d-flex align-items-center" role="success">
+                    <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#info-fill"/></svg>
+                    <div>
+                      Data generated successfully!
+                    </div>
+                  </div>
+                  <p>The account balance for the mentioned account is <mark>{{balance}}</mark> .</p>
+                {% elif signal == 0 %}
+                <div class="alert alert-danger" role="alert">
+                    {{msg}}
+                    <p>Please Enter the correct public address.</p>
+                  </div>
+                  
+                {% endif %}
+            </div>
+             <form method="POST" action="/checkbalance">  {% csrf_token %}
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon2">Enter the public address</span>
+                    <input name="publicaddress" type="text" class="form-control" placeholder="Public address" aria-label="Block address" aria-describedby="basic-addon2" required=True>
+                  </div>
+                <br>
+                  <div class="container">
+                <span class="input-group-text" id="basic-addon2">Choose the currency value</span>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="eth" checked>
+                    <label class="form-check-label" for="exampleRadios1">
+                      Ether
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="wei">
+                    <label class="form-check-label" for="exampleRadios2">
+                      Wei
+                    </label>
+                  </div>
+                </div>
+
+                  <div class="btn">
+                  <button type="submit" class="btn btn-dark">Submit</button>
+                  </div>
+                  
+             </form>
+         </div>
+
+        <div class="container">
+          <div style="position: relative; width: 800px; height: 200px; align: bottom;">    
+          <div style="position: absolute; bottom: 5px;">
+            <p class="lead">
+              Get Balance of an ethereum account. Get the account balance in either wei or ether.
+            </p>
+          </div>
+        </div>
+        </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+  </body>
+</html>
