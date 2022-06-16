@@ -79,3 +79,6 @@ def getBalance(request):
             msg['signal'] = 0
             msg['msg'] = "PUBLIC ADDRESS NOT FOUND"
     return render(request, 'checkbalance.html',msg)
+
+def transactions_home(request):
+    return render(request, 'transactionhome.html')

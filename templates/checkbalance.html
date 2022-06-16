@@ -55,7 +55,7 @@
                   
                 {% endif %}
             </div>
-             <form method="POST" action="/checkbalance">  {% csrf_token %}
+             <form method="POST" action="/checkbalance/">  {% csrf_token %}
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="basic-addon2">Enter the public address</span>
                     <input name="publicaddress" type="text" class="form-control" placeholder="Public address" aria-label="Block address" aria-describedby="basic-addon2" required=True>

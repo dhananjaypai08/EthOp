@@ -42,24 +42,32 @@
                 {{msg}}
               </div>
               {% if Connected %}
-              <span class="badge text-bg-info">Node is connection: {{Connected}}</span>
+              <span class="badge text-bg-info">Node connection: {{Connected}}</span>
               {% endif %}
               <br>
               
-              <a href="static/data.json" download="data.json" class="link-success">Download json file</a>
+              <div class="alert alert-primary" role="alert">
+                Your data is ready to be downloaded. Click on the link below.
+                <a href="static/data.json" download="data.json" class="link-success">Download json file</a>
               </a>
+              </div>
+              
              
              {% elif signal == 3 %}
              <div class="alert alert-danger" role="alert">
                 {{msg}}
               </div>
              {% endif %}
+             <script type="text/javascript"> 
+                // Store and process all the work if needed
+                console.log("{{msg}}")
+             </script>
 
         </div>
         <br> 
         <br>
          <div class="container">
-             <form method="POST" action="/blocklookup">  {% csrf_token %}
+             <form method="POST" action="/blocklookup/">  {% csrf_token %}
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="basic-addon2">Enter Block Number or Block Hash</span>
                     <input name="address" type="text" class="form-control" placeholder="Block number or Hash or type `latest`" aria-label="Block address" aria-describedby="basic-addon2" required=True>
@@ -90,6 +98,6 @@
         </div>
         </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></>
   </body>
 </html>
