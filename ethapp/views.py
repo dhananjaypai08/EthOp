@@ -1,5 +1,5 @@
 from tabnanny import check
-from django.shortcuts import render
+from django.shortcuts import render, HttpResponse
 import eth_tester
 from web3 import Web3
 import json
@@ -82,3 +82,9 @@ def getBalance(request):
 
 def transactions_home(request):
     return render(request, 'transactionhome.html')
+
+def get_transactions(request):
+    return HttpResponse('<h1>GET TRANSACTION<h1>')
+
+def send_transactions(request):
+    return HttpResponse('<h1>SEND TRANSACTION<h1>')
